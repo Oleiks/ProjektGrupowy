@@ -1,0 +1,7 @@
+<div style="text-align: center;" *ngIf="Grzyb">
+    <h2>Grzyb</h2>
+    <strong><p>{{Grzyb.name}}</p></strong>
+    <img [src]="sanitizeImageUrl(Grzyb.imageURL)" alt="{{ Grzyb.name }} Image">
+    <p>{{Grzyb.description}}</p>
+<hr>
+  </div>

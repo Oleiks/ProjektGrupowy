@@ -1,0 +1,5 @@
+###
+GET http://localhost:8082/api/get
+
+###
+DELETE http://localhost:8082/delete/test

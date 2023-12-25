@@ -1,0 +1,12 @@
+<div>
+    <ul>
+      <li *ngFor="let Grzyb of Grzyby" (click)="viewGrzyb(Grzyb.name)">
+        <div class="grzyb-container">
+          <strong>{{ Grzyb.name }}</strong>
+          <img [src]="sanitizeImageUrl(Grzyb.imageURL)" alt="{{ Grzyb.name }} Image">
+        </div>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  

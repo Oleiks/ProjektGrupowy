@@ -1,0 +1,88 @@
+###
+GET http://localhost:8081/api/get
+
+###
+DELETE http://localhost:8080/song/deletesong/test
+
+###
+GET http://localhost:8080/song/allsongs
+
+###
+DELETE http://localhost:8080/song/deletesong/Respect
+
+###
+GET http://localhost:8080/song/allsongs
+
+###
+GET http://localhost:8082/api/get
+
+###
+DELETE http://localhost:8080/Grzyb/delete/Ready%20to%20Die
+
+###
+GET http://localhost:8080/Grzyb/allGrzybs
+
+###
+GET http://localhost:8080/song/allsongs
+
+###
+DELETE http://localhost:8080/Grzyb/delete/Example
+
+###
+GET http://localhost:8080/Grzyb/allGrzybs
+
+###
+PUT http://localhost:8080/song/addsong/The%20College%20Dropout
+Content-Type: application/json
+
+{
+  "title": "TestSong",
+  "year": 2003
+}
+
+###
+GET http://localhost:8080/song/allsongs
+
+###
+GET http://localhost:8080/Grzyb/songsfromGrzyb/The%20College%20Dropout
+
+###
+PATCH http://localhost:8080/song/changesong/TestSong
+Content-Type: application/json
+
+{
+  "title": "ChangedSong",
+  "year": 2009
+}
+
+###
+GET http://localhost:8080/song/allsongs
+
+###
+GET http://localhost:8080/Grzyb/songsfromGrzyb/The%20College%20Dropout
+
+###
+PUT http://localhost:8080/Grzyb/addGrzyb
+Content-Type: application/json
+
+{
+  "name": "NewGrzyb",
+  "author": "NewArtist",
+  "year": 2020
+}
+
+###
+GET http://localhost:8080/Grzyb/allGrzybs
+
+###
+PATCH http://localhost:8080/Grzyb/changeGrzyb/The%20College%20Dropout
+Content-Type: application/json
+
+{
+  "name": "ChangedGrzyb",
+  "author": "NewArtist",
+  "year": 2020
+}
+
+###
+GET http://localhost:8080/Grzyb/allGrzybs

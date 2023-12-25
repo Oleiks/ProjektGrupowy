@@ -1,0 +1,54 @@
+.header-container {
+  display: flex;
+  flex-direction: column; /* Change to column to stack children vertically */
+  background-color: rgb(255, 238, 0);
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  display: block;
+}
+.branding-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align children to the start (left) */
+  width: 100%;
+}
+
+.header-container h1 {
+  flex-grow: 1;
+  margin: 0;
+  text-align: center;
+  color: white; /* Adjust text color as needed */
+}
+
+nav {
+  width: 100%;
+  background-color: rgb(150, 142, 28);
+  margin-top: 1px; /* Add margin to separate nav from header-container */
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background-color: #555;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+a:hover {
+  background-color: #777;
+}
+
+a.active {
+  background-color: #999;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}

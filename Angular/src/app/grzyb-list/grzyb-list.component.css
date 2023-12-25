@@ -1,0 +1,47 @@
+div {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.grzyb-container {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.grzyb-container:hover {
+  background-color: #e0e0e0;
+}
+
+strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+img {
+  width: 300px; /* Ensure all images have the same width */
+  height: 300px; /* Maintain aspect ratio */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  margin-top: 5px;
+}
