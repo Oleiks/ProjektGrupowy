@@ -23,6 +23,7 @@ public class GatewayApplication {
 	public RouteLocator customRouteLocator(
 			RouteLocatorBuilder builder,
 			@Value("${Grzyb.url}")String Grzyburl,
+			@Value("${Question.url}")String Questionurl,
 			@Value("${gateway.host}")String host
 			){
 		return builder
@@ -38,6 +39,24 @@ public class GatewayApplication {
 								"/api/get/{name}"
 								)
 						.uri(Grzyburl)
+				)
+				.route("Question", r -> r
+						.host(host)
+						.and()
+						.path(
+								"/api/question/{id}/answers",
+								"/api/answers/{id}",
+								"/api/answer",
+								"/api/answers/{id}",
+								"/api/answers/{id}",
+
+								"/api/questions/{id}",
+								"/api/questions",
+								"/api/questions/{id}",
+								"/api/question",
+								"/api/questions/{id}"
+						)
+						.uri(Questionurl)
 				)
 				.build();
 	}
