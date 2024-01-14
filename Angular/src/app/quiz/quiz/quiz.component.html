@@ -25,7 +25,8 @@
   </div>
   <div *ngIf="isQuizEnded" class="summary">
     <div class="score">
-      <p>{{score}}/{{questions.length}}</p>
+      <p><strong>Twój wynik to:</strong></p>
+      <p><strong>{{score}}/{{questions.length}}</strong></p>
     </div>
     <button class="basic-btn" (click)="restartQuiz()">Zacznij od nowa</button>
   </div>

@@ -29,6 +29,7 @@ export class QuizComponent implements OnInit{
     }
     this.isQuizEnded=true;
     this.isQuizStarted=false;
+    console.log(this.isLastQuestion,this.score)
   }
   nextQuestion(){
     this.currentQuestion+=1;
@@ -38,9 +39,12 @@ export class QuizComponent implements OnInit{
       }
     }
     else{
+      if(this.answer){
+        this.score+=1;
+      }
       this.isLastQuestion=true;
     }
-    console.log(this.isLastQuestion)
+    console.log(this.isLastQuestion,this.score)
   }
   selectAnswer(answer: any){
     for(let a of this.questions[this.currentQuestion].answers){
