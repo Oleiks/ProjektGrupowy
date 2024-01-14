@@ -11,7 +11,12 @@ li {
   display: inline-block;
   margin: 10px;
 }
-
+b {
+  font-size: 20px;
+}
+p{
+  font-size:1%;
+}
 .grzyb-container {
   text-align: center;
   padding: 15px;
@@ -20,8 +25,8 @@ li {
   background-color: #d1d8c8;
   transition: background-color 0.3s ease;
   cursor: pointer;
-}
 
+}
 .grzyb-container:hover {
   background-color: #c1c8b8;
 }

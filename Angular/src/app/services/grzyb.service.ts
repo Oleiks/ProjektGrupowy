@@ -14,7 +14,12 @@ export class GrzybService {
   getAllGrzyby(): Observable<any> {
     return this.http.get(`${this.baseUrl}/get`);
   }
-
+  getJadalneGrzyby(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/get/jadalne`);
+  }
+  getNieJadalneGrzyby(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/get/nieJadalne`);
+  }
   deleteGrzyb(name: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete/${name}`);
   }

@@ -9,7 +9,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./grzyb-list.component.css']
 })
 export class GrzybListComponent {
-  Grzyby: any[] = [];
+  GrzybyJadalne: any[] = [];
+  GrzybyNieJadalne: any[] = [];
 
   constructor(private grzybService: GrzybService,private router: Router, private domSanitizer: DomSanitizer) { }
 
@@ -18,9 +19,11 @@ export class GrzybListComponent {
   }
 
   private loadGrzybs(): void {
-    this.grzybService.getAllGrzyby().subscribe(Grzyby => {
-      this.Grzyby = Grzyby;
-
+    this.grzybService.getJadalneGrzyby().subscribe(Grzyby => {
+      this.GrzybyJadalne = Grzyby;
+    });
+    this.grzybService.getNieJadalneGrzyby().subscribe(Grzyby => {
+      this.GrzybyNieJadalne = Grzyby;
     });
   }
 

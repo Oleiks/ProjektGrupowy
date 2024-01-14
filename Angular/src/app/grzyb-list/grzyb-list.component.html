@@ -1,9 +1,23 @@
 <div>
+  <b>Grzyby Jadalne</b>
+  <hr>
     <ul>
-      <li *ngFor="let Grzyb of Grzyby" (click)="viewGrzyb(Grzyb.name)">
+      <li *ngFor="let Grzyb of GrzybyJadalne" (click)="viewGrzyb(Grzyb.name)">
         <div class="grzyb-container">
           <strong>{{ Grzyb.name }}</strong>
           <img [src]="sanitizeImageUrl(Grzyb.imageURL)" alt="{{ Grzyb.name }} Image">
+          <p>Źródło zdjęcia: {{Grzyb.imageURL}}</p>
+        </div>
+      </li>
+    </ul>
+  <b>Grzyby trujące</b>
+  <hr>
+    <ul>
+      <li *ngFor="let Grzyb of GrzybyNieJadalne" (click)="viewGrzyb(Grzyb.name)">
+        <div class="grzyb-container">
+          <strong>{{ Grzyb.name }}</strong>
+          <img [src]="sanitizeImageUrl(Grzyb.imageURL)" alt="{{ Grzyb.name }} Image">
+          <p>Źródło zdjęcia: {{Grzyb.imageURL}}</p>
         </div>
       </li>
     </ul>
