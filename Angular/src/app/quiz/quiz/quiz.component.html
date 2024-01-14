@@ -1,16 +1,32 @@
-<p>quiz works!</p>
-<form *ngIf="!end" #form="ngForm" (ngSubmit)="onSubmit()">
-  <div *ngIf="questions" class="quiz">
-    <div *ngFor="let q of questions" class="question">
-      {{q.content}}<br>
-      <input type="radio" name="{{q.id}}" value="0" [(ngModel)]="answers[q.id-1]"> {{q.answers[0].answer}}<br>
-      <input type="radio" name="{{q.id}}" value="1" [(ngModel)]="answers[q.id-1]"> {{q.answers[1].answer}}<br>
-      <input type="radio" name="{{q.id}}" value="2" [(ngModel)]="answers[q.id-1]"> {{q.answers[2].answer}}<br>
-      <input type="radio" name="{{q.id}}" value="3" [(ngModel)]="answers[q.id-1]"> {{q.answers[3].answer}}<br><br>
+<div class="quiz">
+  <div *ngIf="!isQuizStarted&&!isQuizEnded" class="start">
+    <div class="rules ">
+      <p>
+        <strong>
+        Quiz jest testem jednokrotnego wyboru<br>
+        Na każde pytanie jest nieograniczony czas<br>
+        Nie można cofac się do poprzednich pytań!<br>
+        </strong>
+      </p>
+    </div>
+    <button  class="basic-btn" (click)="startQuiz()">Start</button>
+  </div>
+  <div *ngIf="isQuizStarted" class="questionWindow">
+    <div class="question">
+      <span><strong>{{questions[currentQuestion].content}}</strong></span>
+    </div>
+    <div *ngFor="let a of questions[currentQuestion].answers" (click)="selectAnswer(a)" [ngClass]="a.isSelected==undefined ? 'answer': 'answer selected'">
+      <span>{{a.answer}}</span>
+    </div>
+    <div class="buttons">
+      <button *ngIf="!isLastQuestion" class="basic-btn" (click)="nextQuestion()">Następne pytanie</button>
+      <button *ngIf="isLastQuestion" class="basic-btn" (click)="endQuiz()">Zakończ quiz</button>
     </div>
   </div>
-  <button type="submit">Wynik</button>
-</form>
-<div *ngIf="end">
-  {{(result/questions.length)*100}}% ({{result}}/{{questions.length}})<br>
+  <div *ngIf="isQuizEnded" class="summary">
+    <div class="score">
+      <p>{{score}}/{{questions.length}}</p>
+    </div>
+    <button class="basic-btn" (click)="restartQuiz()">Zacznij od nowa</button>
+  </div>
 </div>

@@ -9,24 +9,57 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class QuizComponent implements OnInit{
   questions: any[]=[];
-  answers: number[]=[];
-  result: number=0;
-  end: boolean=false;
+  isQuizStarted: boolean=false;
+  isQuizEnded: boolean=false;
+  isLastQuestion:boolean=false;
+  currentQuestion: number=0;
+  answer: boolean=false;
+  score: number=0;
   constructor(private service: QuestionService, private route: ActivatedRoute, private router: Router) {
   }
   ngOnInit() {
     this.service.getAllQuestions().subscribe(q => this.questions=q);
   }
-  onSubmit(){
-    let q = 0;
-    this.result=0;
-    for(let i of this.answers){
-      if(this.questions[q].answers[i].correct==true){
-        this.result+=1;
-        q+=1;
+  startQuiz(){
+    this.isQuizStarted = true;
+  }
+  endQuiz(){
+    if(this.answer){
+      this.score+=1;
+    }
+    this.isQuizEnded=true;
+    this.isQuizStarted=false;
+  }
+  nextQuestion(){
+    this.currentQuestion+=1;
+    if(this.currentQuestion<this.questions.length-1){
+      if(this.answer){
+        this.score+=1;
       }
     }
-    this.answers=[];
-    this.end=true;
+    else{
+      this.isLastQuestion=true;
+    }
+    console.log(this.isLastQuestion)
+  }
+  selectAnswer(answer: any){
+    for(let a of this.questions[this.currentQuestion].answers){
+      a.isSelected=undefined;
+    }
+    answer.isSelected=true;
+    this.answer=answer.correct;
+  }
+  restartQuiz(){
+    this.isLastQuestion=false;
+    this.isQuizEnded=false;
+    this.isQuizStarted=true;
+    this.currentQuestion=0;
+    this.answer=false;
+    this.score=0;
+    for(let q of this.questions){
+      for(let a of q.answers){
+        a.isSelected = undefined;
+      }
+    }
   }
 }
