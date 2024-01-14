@@ -1,0 +1,33 @@
+<div class="quiz">
+  <div *ngIf="!isQuizStarted&&!isQuizEnded" class="start">
+    <div class="rules ">
+      <p>
+        <strong>
+        Quiz jest testem jednokrotnego wyboru<br>
+        Na każde pytanie jest nieograniczony czas<br>
+        Nie można cofac się do poprzednich pytań!<br>
+        </strong>
+      </p>
+    </div>
+    <button  class="basic-btn" (click)="startQuiz()">Start</button>
+  </div>
+  <div *ngIf="isQuizStarted" class="questionWindow">
+    <div class="question">
+      <span><strong>{{questions[currentQuestion].content}}</strong></span>
+    </div>
+    <div *ngFor="let a of questions[currentQuestion].answers" (click)="selectAnswer(a)" [ngClass]="a.isSelected==undefined ? 'answer': 'answer selected'">
+      <span>{{a.answer}}</span>
+    </div>
+    <div class="buttons">
+      <button *ngIf="!isLastQuestion" class="basic-btn" (click)="nextQuestion()">Następne pytanie</button>
+      <button *ngIf="isLastQuestion" class="basic-btn" (click)="endQuiz()">Zakończ quiz</button>
+    </div>
+  </div>
+  <div *ngIf="isQuizEnded" class="summary">
+    <div class="score">
+      <p><strong>Twój wynik to:</strong></p>
+      <p><strong>{{score}}/{{questions.length}}</strong></p>
+    </div>
+    <button class="basic-btn" (click)="restartQuiz()">Zacznij od nowa</button>
+  </div>
+</div>

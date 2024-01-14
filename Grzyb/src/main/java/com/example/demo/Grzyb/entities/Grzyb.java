@@ -13,18 +13,19 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="Grzyby")
+@Table(name="grzyby")
 public class Grzyb {
     @Id
     @Column(name="UUID")
     private UUID identifier;
     @Column(name="Nazwa")
     private String name;
-    @Column(name="Opis", columnDefinition="TEXT")
+    @Column(name="Opis")
     private String description;
     @Column(name="Zdjęcie")
     private String imageURL;
-
+    @Column(name="CzyJadalne")
+    private Boolean edible;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

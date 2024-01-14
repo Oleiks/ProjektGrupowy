@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GrzybListComponent } from './grzyb-list/grzyb-list.component';
 import { GrzybAddComponent } from './grzyb-add/grzyb-add.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { GrzybEditComponent } from './grzyb-edit/grzyb-edit.component';
 import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
+import { QuizComponent } from './quiz/quiz/quiz.component';
 
 
 @NgModule({
@@ -17,13 +18,14 @@ import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
     GrzybAddComponent,
     GrzybEditComponent,
     GrzybDetailsComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
