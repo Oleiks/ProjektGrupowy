@@ -5,8 +5,7 @@ import com.example.demo.Question.repositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class QuestionService {
@@ -26,5 +25,22 @@ public class QuestionService {
     }
     public List<Question> findAll(){
         return questionRepository.findAll();
+    }
+
+    public List<Question> GetRandomQuestions(int numberOfQuestions){
+        List<Question> allQuestions = questionRepository.findAll();
+        Set<Long> selectedQuestionIds = new HashSet<>();
+        Random random = new Random();
+        List<Question> randomQuestions = new ArrayList<>();
+        while (randomQuestions.size() < numberOfQuestions) {
+            int randomIndex = random.nextInt(allQuestions.size());
+            Question selectedQuestion = allQuestions.get(randomIndex);
+
+            if (!selectedQuestionIds.contains(selectedQuestion.getId())) {
+                randomQuestions.add(selectedQuestion);
+                selectedQuestionIds.add(selectedQuestion.getId());
+            }
+        }
+        return randomQuestions;
     }
 }
