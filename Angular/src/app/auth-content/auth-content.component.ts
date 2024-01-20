@@ -6,20 +6,15 @@ import {AxiosService} from "../services/axios.service";
   templateUrl: './auth-content.component.html',
   styleUrls: ['./auth-content.component.css']
 })
-export class AuthContentComponent implements OnInit{
+
+export class AuthContentComponent {
   data: string[] = [];
 
   constructor(private axiosService: AxiosService) {
 
   }
 
-  ngOnInit(): void {
-    this.axiosService.request(
-      "GET",
-      "api/message",
-      {}
-    ).then(
-      (response) => this.data = response.data
-    )
+  onLogin(input: any): void {
+
   }
 }

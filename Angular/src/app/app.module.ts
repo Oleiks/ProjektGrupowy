@@ -11,7 +11,7 @@ import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
 import { QuizComponent } from './quiz/quiz/quiz.component';
 import { AuthContentComponent } from './auth-content/auth-content.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { WelcomeUserContentComponent } from './welcome-user-content/welcome-user-content.component';
+import { ContentComponent } from './content/content.component';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { WelcomeUserContentComponent } from './welcome-user-content/welcome-user
     QuizComponent,
     AuthContentComponent,
     LoginFormComponent,
-    WelcomeUserContentComponent,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
