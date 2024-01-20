@@ -5,10 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GrzybListComponent } from './grzyb-list/grzyb-list.component';
 import { GrzybAddComponent } from './grzyb-add/grzyb-add.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GrzybEditComponent } from './grzyb-edit/grzyb-edit.component';
 import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
 import { QuizComponent } from './quiz/quiz/quiz.component';
+import { AuthContentComponent } from './auth-content/auth-content.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { WelcomeUserContentComponent } from './welcome-user-content/welcome-user-content.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { QuizComponent } from './quiz/quiz/quiz.component';
     GrzybEditComponent,
     GrzybDetailsComponent,
     QuizComponent,
+    AuthContentComponent,
+    LoginFormComponent,
+    WelcomeUserContentComponent,
   ],
   imports: [
     BrowserModule,
