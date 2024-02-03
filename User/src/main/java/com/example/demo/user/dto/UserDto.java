@@ -1,4 +1,4 @@
-package com.example.user.dto;
+package com.example.demo.user.dto;
 
 import lombok.*;
 
@@ -11,9 +11,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode
-public class GetUserResponse {
+public class UserDto {
 
     private UUID id;
-    private String username;
+    private String login;
+    private String firstName;
+    private String lastName;
+    private String token;
 
 }
