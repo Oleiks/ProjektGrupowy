@@ -25,7 +25,7 @@ export class ContentComponent {
   onRegister(input: any): void {
     this.axiosService.request(
       "POST",
-      "/resgister",
+      "/register",
       {
         firstName: input.firstName,
         lastName: input.lastName,

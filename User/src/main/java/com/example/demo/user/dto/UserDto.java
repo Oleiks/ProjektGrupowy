@@ -5,18 +5,15 @@ import lombok.*;
 import java.util.UUID;
 
 @Data
-@Getter
-@Setter
-@Builder
+@AllArgsConstructor
 @NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode
+@Builder
 public class UserDto {
 
     private UUID id;
-    private String login;
     private String firstName;
     private String lastName;
+    private String login;
     private String token;
 
 }

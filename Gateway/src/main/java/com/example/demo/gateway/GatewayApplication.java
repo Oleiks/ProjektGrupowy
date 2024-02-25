@@ -75,20 +75,20 @@ public class GatewayApplication {
 	}
 	@Bean
 	public CorsWebFilter corsWebFilter() {
-
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		final CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.setAllowedOrigins(Collections.singletonList("*")); // I guess this accepts all origins (?)
-//		corsConfig.setAllowCredentials(true);
-//		corsConfig.addAllowedOrigin("http://localhost:4200");
+
+		corsConfig.setAllowedOrigins(Collections.singletonList("http://localhost:4200")); // or set specific origins
+		corsConfig.setAllowCredentials(true); // Uncomment if you need credentials (cookies) to be sent with requests
 		corsConfig.setMaxAge(3600L);
 		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT", "PATCH"));
-		corsConfig.addAllowedHeader("*"); // this accepts all headers
+		corsConfig.addAllowedHeader("*"); // Accepts all headers; adjust based on your needs
 		corsConfig.setAllowedHeaders(Arrays.asList(
 				HttpHeaders.AUTHORIZATION,
 				HttpHeaders.CONTENT_TYPE,
-				HttpHeaders.ACCEPT));
+				HttpHeaders.ACCEPT
+		));
 
-		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfig);
 
 		return new CorsWebFilter(source);

@@ -7,8 +7,9 @@ import {AxiosService} from "../services/axios.service";
   styleUrls: ['./auth-content.component.css']
 })
 
-export class AuthContentComponent {
+export class AuthContentComponent implements OnInit{
   data: string[] = [];
+
 
   constructor(private axiosService: AxiosService) {
 
@@ -16,5 +17,15 @@ export class AuthContentComponent {
 
   onLogin(input: any): void {
 
+  }
+
+  ngOnInit(): void {
+    this.axiosService.request(
+      "GET",
+      "/hello-world",
+      null
+    ).then(
+      (response) => this.data = response.data
+    );
   }
 }
