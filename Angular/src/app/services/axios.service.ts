@@ -26,7 +26,7 @@ export class AxiosService {
     let headers = {};
 
     if (this.getAuthToken() !== null) {
-      headers = {"Authorization": "Bearer" + this.getAuthToken()}
+      headers = {"Authorization": "Bearer " + this.getAuthToken()}
     }
 
     return axios({
