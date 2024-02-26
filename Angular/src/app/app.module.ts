@@ -12,6 +12,7 @@ import { QuizComponent } from './quiz/quiz/quiz.component';
 import { AuthContentComponent } from './auth-content/auth-content.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ContentComponent } from './content/content.component';
+import { ButtonsComponent } from './buttons/buttons.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ContentComponent } from './content/content.component';
     AuthContentComponent,
     LoginFormComponent,
     ContentComponent,
+    ButtonsComponent,
   ],
   imports: [
     BrowserModule,

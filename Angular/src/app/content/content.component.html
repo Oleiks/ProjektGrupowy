@@ -1,4 +1,11 @@
-<app-login-form
-  (onSubmitLoginEvent)="onLogin($event)"
-  (onSubmitRegisterEvent)="onRegister($event)"
-></app-login-form>
+<div>
+  <app-buttons
+    (loginEvent)="showComponent('login')"
+    (logoutEvent)="showComponent('welcome')"
+  />
+
+  <app-login-form
+    (onSubmitLoginEvent)="onLogin($event)"
+    (onSubmitRegisterEvent)="onRegister($event)"
+  ></app-login-form>
+</div>
