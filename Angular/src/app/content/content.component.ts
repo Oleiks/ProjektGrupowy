@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AxiosService} from "../services/axios.service";
+import {Component} from '@angular/core';
+import {AxiosService} from "../services/axios.service";
 
 @Component({
   selector: 'app-content',
@@ -9,12 +9,14 @@ import { AxiosService} from "../services/axios.service";
 export class ContentComponent {
 
   componentToShow: string = "welcome";
+
   constructor(private axiosService: AxiosService) {
   }
 
   showComponent(componentToShow: string): void {
     this.componentToShow = componentToShow;
   }
+
   onLogin(input: any): void {
     this.axiosService.request(
       "POST",
@@ -27,6 +29,10 @@ export class ContentComponent {
       this.axiosService.setAuthToken(response.data.token);
       this.componentToShow = "messages";
     });
+  }
+
+  onLogout(): void {
+    this.axiosService.setAuthToken(null) // remove auth_token from local storage
   }
 
   onRegister(input: any): void {

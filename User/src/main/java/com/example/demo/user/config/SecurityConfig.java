@@ -23,12 +23,11 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .addFilterBefore(new JwtAuthFilter(userAuthProvider), BasicAuthenticationFilter.class)
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests((requests) -> {
-                    requests
-                            .requestMatchers(HttpMethod.POST, "/login", "/register").permitAll()
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers(HttpMethod.POST, "/login", "/register").permitAll()
 //                            .requestMatchers(HttpMethod.GET, "/hello-world").permitAll()
-                            .anyRequest().authenticated();
-                    }
+//                            .requestMatchers(HttpMethod.GET, "/Quiz").authenticated()
+                        .anyRequest().authenticated()
 
                 );
         return http.build();

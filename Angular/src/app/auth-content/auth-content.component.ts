@@ -15,10 +15,6 @@ export class AuthContentComponent implements OnInit{
 
   }
 
-  onLogin(input: any): void {
-
-  }
-
   ngOnInit(): void {
     this.axiosService.request(
       "GET",
