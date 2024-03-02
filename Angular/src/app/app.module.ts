@@ -11,7 +11,7 @@ import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
 import { QuizComponent } from './quiz/quiz/quiz.component';
 import { AuthContentComponent } from './auth-content/auth-content.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { ContentComponent } from './content/content.component';
+import { LoginContentComponent } from './login-content/login-content.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { WelcomeContentComponent } from './welcome-content/welcome-content.component';
 
@@ -26,7 +26,7 @@ import { WelcomeContentComponent } from './welcome-content/welcome-content.compo
     QuizComponent,
     AuthContentComponent,
     LoginFormComponent,
-    ContentComponent,
+    LoginContentComponent,
     ButtonsComponent,
     WelcomeContentComponent,
   ],

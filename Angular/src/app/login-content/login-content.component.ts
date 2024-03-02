@@ -3,18 +3,24 @@ import {AxiosService} from "../services/axios.service";
 
 @Component({
   selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  templateUrl: './login-content.component.html',
+  styleUrls: ['./login-content.component.css']
 })
-export class ContentComponent {
+export class LoginContentComponent {
 
   componentToShow: string = "welcome";
+  isLoggedIn!: boolean;
 
   constructor(private axiosService: AxiosService) {
+    this.checkLogin();
   }
 
   showComponent(componentToShow: string): void {
     this.componentToShow = componentToShow;
+  }
+
+  checkLogin(): void {
+    this.isLoggedIn = this.axiosService.getAuthToken() !== null;
   }
 
   onLogin(input: any): void {
@@ -28,6 +34,7 @@ export class ContentComponent {
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.componentToShow = "messages";
+      this.checkLogin();
     });
   }
 
