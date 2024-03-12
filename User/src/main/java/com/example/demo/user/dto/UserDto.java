@@ -16,4 +16,7 @@ public class UserDto {
     private String login;
     private String token;
 
+    public String getUsername() {
+        return firstName + " " + lastName;
+    }
 }

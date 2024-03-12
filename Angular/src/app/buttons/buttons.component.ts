@@ -6,6 +6,6 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./buttons.component.css']
 })
 export class ButtonsComponent {
-  @Output() loginEvent = new EventEmitter();
+  @Output() loginEvent = new EventEmitter();  // this is useless
   @Output() logoutEvent = new EventEmitter();
 }

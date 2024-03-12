@@ -5,7 +5,10 @@ import com.example.demo.user.dto.CredentialsDto;
 import com.example.demo.user.dto.SignUpDto;
 import com.example.demo.user.service.UserService;
 import com.example.demo.user.dto.UserDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -38,6 +41,22 @@ public class AuthController {
     @GetMapping("/hello-world")
     public String helloWorld() {
         return "Hello, world!";
+    }
+
+    @GetMapping("/current-user")
+    public ResponseEntity<String> getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        Object principal = authentication.getPrincipal();
+        if (principal instanceof UserDto) {
+            UserDto user = (UserDto) principal;
+            return ResponseEntity.ok(user.getUsername()); // Assuming getUsername() method exists in UserDto
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Invalid principal type");
+        }
     }
 
 }

@@ -66,7 +66,8 @@ public class GatewayApplication {
 						.path(
 								"/login",
 								"/register",
-								"/hello-world"
+								"/hello-world",
+								"/current-user"
 
 						)
 						.uri(Userurl)
@@ -79,7 +80,7 @@ public class GatewayApplication {
 		final CorsConfiguration corsConfig = new CorsConfiguration();
 
 		corsConfig.setAllowedOrigins(Collections.singletonList("http://localhost:4200")); // or set specific origins
-		corsConfig.setAllowCredentials(true); // Uncomment if you need credentials (cookies) to be sent with requests
+		corsConfig.setAllowCredentials(true);
 		corsConfig.setMaxAge(3600L);
 		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT", "PATCH"));
 		corsConfig.addAllowedHeader("*"); // Accepts all headers; adjust based on your needs

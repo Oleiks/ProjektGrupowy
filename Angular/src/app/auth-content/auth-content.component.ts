@@ -18,10 +18,10 @@ export class AuthContentComponent implements OnInit{
   ngOnInit(): void {
     this.axiosService.request(
       "GET",
-      "/hello-world",
+      "/current-user",
       null
     ).then(
-      (response) => this.data = response.data
+      (response) => this.data += response.data
     );
   }
 }

@@ -40,6 +40,7 @@ export class LoginContentComponent {
 
   onLogout(): void {
     this.axiosService.setAuthToken(null) // remove auth_token from local storage
+    this.checkLogin();
   }
 
   onRegister(input: any): void {
