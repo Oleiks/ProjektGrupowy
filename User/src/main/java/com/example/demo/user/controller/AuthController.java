@@ -34,6 +34,8 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody SignUpDto signUpDto) {
         UserDto user = userService.register(signUpDto);
+
+        // if you don't want the user to be 'logged in' after the registration remove setting the token
         user.setToken(userAuthProvider.createToken(user));
         return ResponseEntity.created(URI.create("/users/" + user.getId())).body(user);
     }
