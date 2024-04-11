@@ -47,6 +47,18 @@ export class QuizComponent implements OnInit {
     this.isQuizEnded = true;
     this.isQuizStarted = false;
     console.log(this.isLastQuestion, this.score)
+    let name: string[] = this.data.split(" ");
+    if(this.data!="") {
+      this.axiosService.request(
+        "PUT",
+        "/api/ranking/user",
+        {
+          firstName: name[0],
+          lastName: name[1],
+          score: this.score
+        }
+      )
+    }
   }
 
   nextQuestion() {
@@ -61,6 +73,7 @@ export class QuizComponent implements OnInit {
       }
       this.isLastQuestion = true;
     }
+    this.answer=false;
     console.log(this.isLastQuestion, this.score)
   }
 

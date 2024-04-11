@@ -9,6 +9,6 @@ export class QuestionService {
 
   constructor(private http:HttpClient) { }
   getAllQuestions():Observable<any>{
-    return this.http.get('http://localhost:8082/api/questions');
+    return this.http.get('http://localhost:8082/api/quiz');
   }
 }

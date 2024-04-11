@@ -26,6 +26,7 @@ public class GatewayApplication {
 			@Value("${Grzyb.url}")String Grzyburl,
 			@Value("${Question.url}")String Questionurl,
 			@Value("${User.url}")String Userurl,
+			@Value("${Ranking.url}")String Rankingurl,
 			@Value("${gateway.host}")String host
 			){
 		return builder
@@ -56,7 +57,8 @@ public class GatewayApplication {
 								"/api/questions",
 								"/api/questions/{id}",
 								"/api/question",
-								"/api/questions/{id}"
+								"/api/questions/{id}",
+								"/api/quiz"
 						)
 						.uri(Questionurl)
 				)
@@ -71,6 +73,17 @@ public class GatewayApplication {
 
 						)
 						.uri(Userurl)
+				)
+				.route("Ranking", r -> r
+						.host(host)
+						.and()
+						.path(
+								"/api/ranking/user",
+								"/api/ranking/users",
+								"/api/ranking/user/{firstName}/{lastName}"
+
+						)
+						.uri(Rankingurl)
 				)
 				.build();
 	}

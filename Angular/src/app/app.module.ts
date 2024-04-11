@@ -14,6 +14,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { LoginContentComponent } from './login-content/login-content.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { WelcomeContentComponent } from './welcome-content/welcome-content.component';
+import { GrzybRankingComponent } from './grzyb-ranking/grzyb-ranking.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { WelcomeContentComponent } from './welcome-content/welcome-content.compo
     LoginContentComponent,
     ButtonsComponent,
     WelcomeContentComponent,
+    GrzybRankingComponent,
   ],
   imports: [
     BrowserModule,

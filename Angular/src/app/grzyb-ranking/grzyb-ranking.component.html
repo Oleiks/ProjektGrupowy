@@ -1,0 +1,6 @@
+<div class="rank-wrapper">
+  <div *ngFor="let u of users; let i = index" class="rank-box">
+    <span class="rank">#{{i + 1}}</span> <span class="name">{{u.firstName}} {{u.lastName}}</span> <span class="points">({{u.score}} points)</span>
+  </div>
+</div>
+
