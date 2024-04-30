@@ -45,16 +45,13 @@ public class GatewayApplication {
 						.and()
 						.path(
 								"/api/question/{id}/answers",
-								"/api/answers/{id}",
 								"/api/answer",
-								"/api/answers/{id}",
 								"/api/answers/{id}",
 
 								"/api/questions/{id}",
 								"/api/questions",
-								"/api/questions/{id}",
 								"/api/question",
-								"/api/questions/{id}"
+								"/api/quiz"
 						)
 						.uri(Questionurl)
 				)

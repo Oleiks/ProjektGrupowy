@@ -18,7 +18,7 @@ export class QuizComponent implements OnInit{
   constructor(private service: QuestionService, private route: ActivatedRoute, private router: Router) {
   }
   ngOnInit() {
-    this.service.getAllQuestions().subscribe(q => this.questions=q);
+    this.service.getQuiz().subscribe(q => this.questions=q);
   }
   startQuiz(){
     this.isQuizStarted = true;
@@ -54,6 +54,7 @@ export class QuizComponent implements OnInit{
     this.answer=answer.correct;
   }
   restartQuiz(){
+    this.ngOnInit();
     this.isLastQuestion=false;
     this.isQuizEnded=false;
     this.isQuizStarted=true;

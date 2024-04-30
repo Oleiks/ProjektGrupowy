@@ -50,6 +50,19 @@ public class QuestionController {
                 .build()).toList();
         return ResponseEntity.ok(questionDTOList);
     }
+    @GetMapping("/quiz")
+    public ResponseEntity<List<QuestionDTO>> GetQuiz(){
+        List<Question> questions = questionService.GetRandomQuestions(5);
+        List<QuestionDTO> questionDTOList = questions.stream().map(q -> QuestionDTO.builder()
+                .id(q.getId())
+                .content(q.getContent())
+                .answers(q.getAnswers().stream().map(a -> QuestionDTO.Answer.builder()
+                        .answer(a.getContent())
+                        .isCorrect(a.isCorrect())
+                        .build()).toList())
+                .build()).toList();
+        return ResponseEntity.ok(questionDTOList);
+    }
     @DeleteMapping("/questions/{id}")
     public ResponseEntity<String> DeleteQuestion(@PathVariable ("id") Long id){
         Optional<Question> question = questionService.find(id);
