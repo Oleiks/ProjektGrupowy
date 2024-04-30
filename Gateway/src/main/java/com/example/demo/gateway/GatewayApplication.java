@@ -6,6 +6,7 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
@@ -24,6 +25,8 @@ public class GatewayApplication {
 			RouteLocatorBuilder builder,
 			@Value("${Grzyb.url}")String Grzyburl,
 			@Value("${Question.url}")String Questionurl,
+			@Value("${User.url}")String Userurl,
+			@Value("${Ranking.url}")String Rankingurl,
 			@Value("${gateway.host}")String host
 			){
 		return builder
@@ -44,7 +47,7 @@ public class GatewayApplication {
 						.host(host)
 						.and()
 						.path(
-								"/api/question/{id}/answers",
+								"/api/question/{id}/answers", // ?
 								"/api/answer",
 								"/api/answers/{id}",
 
@@ -55,18 +58,47 @@ public class GatewayApplication {
 						)
 						.uri(Questionurl)
 				)
+				.route("user", r -> r
+						.host(host)
+						.and()
+						.path(
+								"/login",
+								"/register",
+								"/hello-world",
+								"/current-user"
+
+						)
+						.uri(Userurl)
+				)
+				.route("Ranking", r -> r
+						.host(host)
+						.and()
+						.path(
+								"/api/ranking/user",
+								"/api/ranking/users",
+								"/api/ranking/user/{firstName}/{lastName}"
+
+						)
+						.uri(Rankingurl)
+				)
 				.build();
 	}
 	@Bean
 	public CorsWebFilter corsWebFilter() {
-
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		final CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.setAllowedOrigins(Collections.singletonList("*"));
+
+		corsConfig.setAllowedOrigins(Collections.singletonList("http://localhost:4200")); // or set specific origins
+		corsConfig.setAllowCredentials(true);
 		corsConfig.setMaxAge(3600L);
 		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT", "PATCH"));
-		corsConfig.addAllowedHeader("*");
+		corsConfig.addAllowedHeader("*"); // Accepts all headers; adjust based on your needs
+		corsConfig.setAllowedHeaders(Arrays.asList(
+				HttpHeaders.AUTHORIZATION,
+				HttpHeaders.CONTENT_TYPE,
+				HttpHeaders.ACCEPT
+		));
 
-		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfig);
 
 		return new CorsWebFilter(source);

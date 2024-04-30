@@ -1,0 +1,12 @@
+<div>
+  <app-buttons *ngIf="isLoggedIn"
+    (logoutEvent)="showComponent('welcome'); onLogout(); checkLogin();"
+  />
+
+  <app-welcome-content *ngIf="!isLoggedIn"/>
+  <app-auth-content *ngIf="isLoggedIn"/>
+  <app-login-form *ngIf="!isLoggedIn"
+    (onSubmitLoginEvent)="onLogin($event);"
+    (onSubmitRegisterEvent)="onRegister($event);"
+  ></app-login-form>
+</div>
