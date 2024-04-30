@@ -8,7 +8,8 @@ import {Observable} from "rxjs";
 export class QuestionService {
 
   constructor(private http:HttpClient) { }
-  getAllQuestions():Observable<any>{
+
+  getQuiz():Observable<any>{
     return this.http.get('http://localhost:8082/api/quiz');
   }
 }

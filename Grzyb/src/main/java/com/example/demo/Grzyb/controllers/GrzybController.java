@@ -24,8 +24,39 @@ public class GrzybController {
         List<GrzybDTO> GrzybyDTO=new ArrayList<>();
         for (Grzyb Grzyb:Grzyby)
         {
-            GrzybDTO GrzybDTO= com.example.demo.Grzyb.dto.GrzybDTO.builder().name(Grzyb.getName()).description(Grzyb.getDescription()).imageURL(Grzyb.getImageURL()).build();
+            GrzybDTO GrzybDTO=com.example.demo.Grzyb.dto.GrzybDTO.builder().name(Grzyb.getName()).description(Grzyb.getDescription()).imageURL(Grzyb.getImageURL()).build();
             GrzybyDTO.add(GrzybDTO);
+        }
+        return ResponseEntity.ok(GrzybyDTO);
+    }
+    @GetMapping("/get/jadalne")
+    public ResponseEntity<List<GrzybDTO>> listGrzybyJadalne()
+    {
+        List<Grzyb> Grzyby;
+        Grzyby=this.grzybService.findAll();
+        List<GrzybDTO> GrzybyDTO=new ArrayList<>();
+        for (Grzyb Grzyb:Grzyby)
+        {
+            if(Grzyb.getEdible()==true)
+            {
+                GrzybDTO GrzybDTO=com.example.demo.Grzyb.dto.GrzybDTO.builder().name(Grzyb.getName()).description(Grzyb.getDescription()).imageURL(Grzyb.getImageURL()).build();
+                GrzybyDTO.add(GrzybDTO);
+            }
+        }
+        return ResponseEntity.ok(GrzybyDTO);
+    }
+    @GetMapping("/get/nieJadalne")
+    public ResponseEntity<List<GrzybDTO>> listGrzybyNieJadalne()
+    {
+        List<Grzyb> Grzyby;
+        Grzyby=this.grzybService.findAll();
+        List<GrzybDTO> GrzybyDTO=new ArrayList<>();
+        for (Grzyb Grzyb:Grzyby)
+        {
+            if(Grzyb.getEdible()==false) {
+                GrzybDTO GrzybDTO = com.example.demo.Grzyb.dto.GrzybDTO.builder().name(Grzyb.getName()).description(Grzyb.getDescription()).imageURL(Grzyb.getImageURL()).build();
+                GrzybyDTO.add(GrzybDTO);
+            }
         }
         return ResponseEntity.ok(GrzybyDTO);
     }

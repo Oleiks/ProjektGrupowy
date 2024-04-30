@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GrzybListComponent } from './grzyb-list/grzyb-list.component';
-import { GrzybAddComponent } from './grzyb-add/grzyb-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GrzybEditComponent } from './grzyb-edit/grzyb-edit.component';
 import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
 import { QuizComponent } from './quiz/quiz/quiz.component';
 import { AuthContentComponent } from './auth-content/auth-content.component';
@@ -15,14 +13,13 @@ import { LoginContentComponent } from './login-content/login-content.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { WelcomeContentComponent } from './welcome-content/welcome-content.component';
 import { GrzybRankingComponent } from './grzyb-ranking/grzyb-ranking.component';
+import { GrzybRecognitionComponent } from './grzyb-recognition/grzyb-recognition.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GrzybListComponent,
-    GrzybAddComponent,
-    GrzybEditComponent,
     GrzybDetailsComponent,
     QuizComponent,
     AuthContentComponent,
@@ -31,6 +28,7 @@ import { GrzybRankingComponent } from './grzyb-ranking/grzyb-ranking.component';
     ButtonsComponent,
     WelcomeContentComponent,
     GrzybRankingComponent,
+    GrzybRecognitionComponent,
   ],
   imports: [
     BrowserModule,

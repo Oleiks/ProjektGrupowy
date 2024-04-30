@@ -26,7 +26,8 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getAllQuestions().subscribe(q => this.questions = q);
+
+    this.service.getQuiz().subscribe(q => this.questions=q);
     this.axiosService.request(
       "GET",
       "/current-user",
@@ -85,15 +86,17 @@ export class QuizComponent implements OnInit {
     this.answer = answer.correct;
   }
 
-  restartQuiz() {
-    this.isLastQuestion = false;
-    this.isQuizEnded = false;
-    this.isQuizStarted = true;
-    this.currentQuestion = 0;
-    this.answer = false;
-    this.score = 0;
-    for (let q of this.questions) {
-      for (let a of q.answers) {
+
+  restartQuiz(){
+    this.ngOnInit();
+    this.isLastQuestion=false;
+    this.isQuizEnded=false;
+    this.isQuizStarted=true;
+    this.currentQuestion=0;
+    this.answer=false;
+    this.score=0;
+    for(let q of this.questions){
+      for(let a of q.answers){
         a.isSelected = undefined;
       }
     }
