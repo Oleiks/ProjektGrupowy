@@ -4,9 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GrzybListComponent } from './grzyb-list/grzyb-list.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
 import { QuizComponent } from './quiz/quiz/quiz.component';
+import { AuthContentComponent } from './auth-content/auth-content.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginContentComponent } from './login-content/login-content.component';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { WelcomeContentComponent } from './welcome-content/welcome-content.component';
+import { GrzybRankingComponent } from './grzyb-ranking/grzyb-ranking.component';
 import { GrzybRecognitionComponent } from './grzyb-recognition/grzyb-recognition.component';
 
 
@@ -16,6 +22,12 @@ import { GrzybRecognitionComponent } from './grzyb-recognition/grzyb-recognition
     GrzybListComponent,
     GrzybDetailsComponent,
     QuizComponent,
+    AuthContentComponent,
+    LoginFormComponent,
+    LoginContentComponent,
+    ButtonsComponent,
+    WelcomeContentComponent,
+    GrzybRankingComponent,
     GrzybRecognitionComponent,
   ],
   imports: [
