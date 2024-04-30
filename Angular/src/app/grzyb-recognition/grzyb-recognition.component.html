@@ -1,0 +1,12 @@
+<div class="first-div" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+  <input id="images" type="file" (change)="onFileSelected($event)" accept="image/*">
+  <label for="images">Wybierz zdjęcie</label>
+  <br/>
+  <button (click)="onUpload()" [disabled]="!selectedFile">Upload</button>
+  <p>Drag & Drop your image here</p>
+</div>
+
+<div class="second-div" *ngIf="selectedFile">
+  <img [src]="imageUrl" alt="Selected Image">
+  <p *ngIf="prediction">Predicted Class: {{ prediction.predicted_class}}</p>
+</div>
