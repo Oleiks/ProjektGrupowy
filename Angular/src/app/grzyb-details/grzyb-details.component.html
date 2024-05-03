@@ -2,8 +2,18 @@
   <strong><h1>{{Grzyb.name}}</h1></strong>
   <div class="container">
     <div id="left-column">
-    <img [src]="sanitizeImageUrl(Grzyb.imageURL)" alt="{{ Grzyb.name }} Image">
+      <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of images">
+          <div class="carousel-wrapper">
+            <img src="{{image.name}}">
+
+          </div>
+        </ng-template>
+      </ngb-carousel>
     <p>Źródło zdjęcia: {{Grzyb.imageURL}}</p>
+    <p>Źródło zdjęcia: {{Grzyb.imageURL2}}</p>
+    <p>Źródło zdjęcia: {{Grzyb.imageURL3}}</p>
+
   </div>
     <div id="right-column">
       <p>{{Grzyb.description}}</p>

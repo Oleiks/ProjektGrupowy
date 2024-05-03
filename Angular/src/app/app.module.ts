@@ -14,7 +14,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { WelcomeContentComponent } from './welcome-content/welcome-content.component';
 import { GrzybRankingComponent } from './grzyb-ranking/grzyb-ranking.component';
 import { GrzybRecognitionComponent } from './grzyb-recognition/grzyb-recognition.component';
-
+import { NgbModule,NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -32,6 +32,8 @@ import { GrzybRecognitionComponent } from './grzyb-recognition/grzyb-recognition
   ],
   imports: [
     BrowserModule,
+    NgbModule,
+    NgbCarouselModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

@@ -2,3 +2,4 @@ body {
     font-family: 'Roboto', sans-serif;
     margin:0px;
   }
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

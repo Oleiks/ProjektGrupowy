@@ -23,12 +23,6 @@ export class GrzybService {
   deleteGrzyb(name: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete/${name}`);
   }
-  addGrzyb(request: any): Observable<any>{
-    return this.http.put(`${this.baseUrl}/put`,request);
-  }
-  editGrzyb(name: string, updatedData: any): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/patch/${name}`, updatedData);
-  }
   getGrzyb(name: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/get/${name}`);
   }

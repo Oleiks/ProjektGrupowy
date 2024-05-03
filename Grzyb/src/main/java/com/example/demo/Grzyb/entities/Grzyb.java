@@ -13,23 +13,30 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="grzyby")
+@Table(name = "grzyby")
 public class Grzyb {
     @Id
-    @Column(name="UUID")
+    @Column(name = "UUID")
     private UUID identifier;
-    @Column(name="Nazwa")
+    @Column(name = "Nazwa")
     private String name;
-    @Column(name="Opis")
+    @Column(name = "Opis")
     private String description;
-    @Column(name="Zdjęcie")
+    @Column(name = "Zdjęcie")
     private String imageURL;
-    @Column(name="CzyJadalne")
+    @Column(name = "Zdjęcie2")
+    private String imageURL2;
+    @Column(name = "Zdjęcie3")
+    private String imageURL3;
+    @Column(name = "CzyJadalne")
     private Boolean edible;
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Grzyb Grzyb = (Grzyb) o;
         return Objects.equals(name, Grzyb.name);
     }

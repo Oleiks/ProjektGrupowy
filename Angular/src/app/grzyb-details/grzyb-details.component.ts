@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class GrzybDetailsComponent {
   Grzyb: any;
+  images: any[]=[];
   constructor(private grzybService: GrzybService,private router: Router,private route:ActivatedRoute, private domSanitizer: DomSanitizer) { }
   ngOnInit(): void {
     this.loadGrzyb();
@@ -18,6 +19,11 @@ export class GrzybDetailsComponent {
     const name = this.route.snapshot.paramMap.get('name')||"";
     this.grzybService.getGrzyb(name).subscribe(Grzyb => {
       this.Grzyb = Grzyb;
+      this.images=[
+        {name:this.Grzyb.imageURL},
+        {name:this.Grzyb.imageURL2},
+        {name:this.Grzyb.imageURL3},
+      ];
     });
   }
   sanitizeImageUrl(imageUrl: string): SafeResourceUrl {
