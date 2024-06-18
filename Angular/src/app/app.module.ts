@@ -7,7 +7,6 @@ import { GrzybListComponent } from './grzyb-list/grzyb-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GrzybDetailsComponent } from './grzyb-details/grzyb-details.component';
 import { QuizComponent } from './quiz/quiz/quiz.component';
-import { AuthContentComponent } from './auth-content/auth-content.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LoginContentComponent } from './login-content/login-content.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -22,7 +21,6 @@ import { NgbModule,NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap'
     GrzybListComponent,
     GrzybDetailsComponent,
     QuizComponent,
-    AuthContentComponent,
     LoginFormComponent,
     LoginContentComponent,
     ButtonsComponent,

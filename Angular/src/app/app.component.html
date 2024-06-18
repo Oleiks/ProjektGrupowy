@@ -1,11 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
 <div style="text-align: center;">
-  <div *ngIf="this.isLoggedIn; else notLoggedIn">
-    <p>Welcome, {{ this.currentUsername }}!</p>
-  </div>
-  <ng-template #notLoggedIn>
-    <p>You are currently not logged in.</p>
-  </ng-template>
   <div class="header-container">
     <div class="branding-container">
     <img src="../assets/images/OIG.png" alt="Logo" class="logo">
@@ -15,8 +9,12 @@
       <a routerLink="/Grzyby" routerLinkActive="active">Atlas Grzybów</a>
       <a routerLink="/Quiz" routerLinkActive="active">Quiz</a>
       <a routerLink="/Ranking" routerLinkActive="active">Ranking</a>
-      <a routerLink="/login" routerLinkActive="active">Login</a>
       <a routerLink="/Recognition" routerLinkActive="active">AI</a>
+      <a *ngIf="!this.isLoggedIn; else usernameLogin" routerLink="/login" routerLinkActive="active">Login</a>
+      <ng-template #usernameLogin>
+        <a routerLink="/login" routerLinkActive="active">{{ this.currentUsername }}</a >
+      </ng-template>
+
     </nav>
   </div>
   <router-outlet></router-outlet>
