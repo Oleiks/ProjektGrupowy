@@ -25,17 +25,7 @@ export class QuizComponent implements OnInit {
               private axiosService: AxiosService) {
   }
 
-  ngOnInit() {
-
-    this.service.getQuiz().subscribe(q => this.questions=q);
-    this.axiosService.request(
-      "GET",
-      "/current-user",
-      null
-    ).then(
-      (response) => this.data += response.data
-    );
-  }
+  ngOnInit() {}
 
   startQuiz() {
     this.isQuizStarted = true;

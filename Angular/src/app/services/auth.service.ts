@@ -12,7 +12,6 @@ import {AxiosService} from "./axios.service";
 export class AuthService {
 
   public loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
-  loggedIn$: Observable<boolean> = this.loggedIn.asObservable();
 
   constructor() {}
 

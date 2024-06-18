@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
 <div style="text-align: center;">
+  <div *ngIf="this.isLoggedIn; else notLoggedIn">
+    <p>Welcome, {{ this.currentUsername }}!</p>
+  </div>
+  <ng-template #notLoggedIn>
+    <p>You are currently not logged in.</p>
+  </ng-template>
   <div class="header-container">
     <div class="branding-container">
     <img src="../assets/images/OIG.png" alt="Logo" class="logo">

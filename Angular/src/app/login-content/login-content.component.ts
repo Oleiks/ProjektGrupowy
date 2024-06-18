@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AxiosService} from "../services/axios.service";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-content',
@@ -11,7 +12,7 @@ export class LoginContentComponent {
   componentToShow: string = "welcome";
   isLoggedIn!: boolean;
 
-  constructor(private axiosService: AxiosService) {
+  constructor(private axiosService: AxiosService, private authService: AuthService) {
     this.checkLogin();
   }
 
@@ -21,6 +22,7 @@ export class LoginContentComponent {
 
   checkLogin(): void {
     this.isLoggedIn = this.axiosService.getAuthToken() !== null;
+    this.authService.loggedIn.next(this.authService.isLoggedIn())
   }
 
   onLogin(input: any): void {
