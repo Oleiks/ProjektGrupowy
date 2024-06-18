@@ -11,6 +11,7 @@
       <a routerLink="/Ranking" routerLinkActive="active">Ranking</a>
       <a routerLink="/login" routerLinkActive="active">Login</a>
       <a routerLink="/Recognition" routerLinkActive="active">AI</a>
+      <div *ngIf="data!=''" class="user">{{data}}</div>
     </nav>
   </div>
   <router-outlet></router-outlet>
