@@ -3,6 +3,7 @@ import {QuestionService} from "../../services/question.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Axios} from "axios";
 import {AxiosService} from "../../services/axios.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-quiz',
@@ -22,10 +23,23 @@ export class QuizComponent implements OnInit {
   constructor(private service: QuestionService,
               private route: ActivatedRoute,
               private router: Router,
-              private axiosService: AxiosService) {
+              private axiosService: AxiosService,
+              private authService: AuthService
+  ) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getQuiz().subscribe(q => this.questions=q);
+    if (this.authService.isLoggedIn()) {
+      this.axiosService.request(
+          "GET",
+          "/current-user",
+          null
+      ).then(
+          (response) => this.data += response.data
+      );
+    }
+  }
 
   startQuiz() {
     this.isQuizStarted = true;
